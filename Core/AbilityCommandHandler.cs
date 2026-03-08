@@ -1,7 +1,7 @@
-namespace AbilityExecution;
+namespace MoonBark.AbilityExecution;
 
-using AbilitySystem;
-using EntityTargetingSystem;
+using MoonBark.Abilities;
+using MoonBark.EntityTargetingSystem;
 using Friflo.Engine.ECS;
 
 /// <summary>
@@ -186,7 +186,7 @@ public sealed class AbilityCommandHandler
     /// <summary>
     /// Executes the ability.
     /// </summary>
-    private AbilityCommandResult ExecuteAbility(AbilityCommand command, Entity caster, AbilitySystem.AbilityDefinition abilityDefinition)
+    private AbilityCommandResult ExecuteAbility(AbilityCommand command, Entity caster, MoonBark.Abilities.AbilityDefinition abilityDefinition)
     {
         // Consume mana
         if (caster.HasComponent<ManaComponent>())

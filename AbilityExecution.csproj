@@ -3,7 +3,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>AbilityExecution</RootNamespace>
+    <RootNamespace>MoonBark.AbilityExecution</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AbilitySystem\AbilitySystem.csproj" />
+    <ProjectReference Include="..\Abilities\Abilities.csproj" />
     <ProjectReference Include="..\EntityTargetingSystem\EntityTargetingSystem.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Exclude test files from the main plugin build -->
+    <Compile Remove="Tests/**/*.cs" />
   </ItemGroup>
 </Project>

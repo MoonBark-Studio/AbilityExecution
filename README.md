@@ -5,7 +5,7 @@ A C# ECS plugin for orchestrating ability execution pipelines in Godot games usi
 ## Purpose
 
 This plugin provides a complete ability execution pipeline that integrates two core systems:
-- **AbilitySystem** - Ability definitions and components
+- **Abilities** - Ability definitions and components
 - **EntityTargetingSystem** - Targeting validation
 
 ## Core Functionality
@@ -25,8 +25,8 @@ The `AbilityExecutionPipeline` class orchestrates the complete ability execution
 ### 2. Command Handling
 
 The `AbilityCommandHandler` provides a simplified command handling interface:
-- Processes `AbilityCommand` from CommandSystem
-- Returns detailed `AbilityCocanslt`isuccess/failure information
+- Processes `AbilityCommand` requests
+- Returns detailed success/failure information
 - Provides clear failure reasons at each validation stage
 
 ### 3. Targeting Bridge
@@ -47,7 +47,7 @@ AbilityExecution
 
 ### Dependencies
 
-- **AbilitySystem** - Ability definitions, components, and registry
+- **Abilities** - Ability definitions, components, and registry
 - **EntityTargetingSystem** - Targeting validation logic
 - **Friflo.Engine.ECS** - ECS framework
 
@@ -158,8 +158,23 @@ AbilityExecution/
 │   ├── AbilityCommandHandler.cs       # Command processing
 │   ├── AbilityTargetingBridge.cs      # Targeting integration
 │   └── AbilityCommandTypes.cs         # Command and result types
+├── Tests/
+│   ├── AbilityExecution.Tests.csproj
+│   └── AbilityCommandTypesTests.cs
+├── docs/
+│   └── integration.md
 └── AbilityExecution.csproj            # Project file
 ```
+
+## Migration Status
+
+`AbilityExecution` now provides the shared command/result contracts used by the extracted ability execution flow, while Thistletide currently keeps game-specific effect execution in its own adapter layer.
+
+## Test Coverage
+
+Local plugin tests live under `Tests/` and validate the extracted command/result contracts directly.
+
+Additional integration notes live in `docs/integration.md`.
 
 ## Design Principles
 
@@ -172,7 +187,7 @@ AbilityExecution/
 
 | Plugin | Purpose |
 |--------|---------|
-| **AbilitySystem** | Ability definitions, components, registry |
+| **Abilities** | Ability definitions, components, registry |
 | **EntityTargetingSystem** | Targeting validation logic |
 | **AbilityExecution** (this plugin) | Ability execution pipeline orchestration |
 | **CommandSystem** | Command handling infrastructure |
@@ -188,4 +203,4 @@ Potential additions:
 
 ## License
 
-[Your License Here]
+License not yet specified.

@@ -1,7 +1,7 @@
-namespace AbilityExecution;
+namespace MoonBark.AbilityExecution;
 
-using AbilitySystem;
-using EntityTargetingSystem;
+using MoonBark.Abilities;
+using MoonBark.EntityTargetingSystem;
 using Friflo.Engine.ECS;
 
 /// <summary>

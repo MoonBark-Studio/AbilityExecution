@@ -1,4 +1,4 @@
-namespace AbilityExecution;
+namespace MoonBark.AbilityExecution;
 
 /// <summary>
 /// Command to execute an ability.
