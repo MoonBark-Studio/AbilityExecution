@@ -40,7 +40,7 @@ public sealed class AbilityCommandHandler
         var validationResult = ValidateCommand(command, caster);
         if (!validationResult.IsValid)
         {
-            return AbilityCommandResult.Failure(validationResult.FailureReason);
+            return AbilityCommandResult.Failure(validationResult.FailureReason ?? "Validation failed");
         }
 
         // Get the ability definition
@@ -50,14 +50,14 @@ public sealed class AbilityCommandHandler
         var manaResult = CheckMana(caster, abilityDefinition.ManaCost);
         if (!manaResult.IsValid)
         {
-            return AbilityCommandResult.Failure(manaResult.FailureReason);
+            return AbilityCommandResult.Failure(manaResult.FailureReason ?? "Mana check failed");
         }
 
         // Check cooldown
         var cooldownResult = CheckCooldown(caster, command.AbilityId);
         if (!cooldownResult.IsValid)
         {
-            return AbilityCommandResult.Failure(cooldownResult.FailureReason);
+            return AbilityCommandResult.Failure(cooldownResult.FailureReason ?? "Cooldown check failed");
         }
 
         // Validate targeting

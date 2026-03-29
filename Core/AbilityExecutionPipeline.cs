@@ -46,21 +46,21 @@ public sealed class AbilityExecutionPipeline
         var validationResult = ValidateCommand(command, caster);
         if (!validationResult.IsValid)
         {
-            return AbilityExecutionResult.Failed(validationResult.FailureReason, AbilityExecutionStage.CommandValidation);
+            return AbilityExecutionResult.Failed(validationResult.FailureReason ?? "Command validation failed", AbilityExecutionStage.CommandValidation);
         }
 
         // Step 2: Check resources (mana)
         var manaResult = CheckMana(caster, command.AbilityId);
         if (!manaResult.IsValid)
         {
-            return AbilityExecutionResult.Failed(manaResult.FailureReason, AbilityExecutionStage.ManaCheck);
+            return AbilityExecutionResult.Failed(manaResult.FailureReason ?? "Mana check failed", AbilityExecutionStage.ManaCheck);
         }
 
         // Step 3: Check cooldown
         var cooldownResult = CheckCooldown(caster, command.AbilityId);
         if (!cooldownResult.IsValid)
         {
-            return AbilityExecutionResult.Failed(cooldownResult.FailureReason, AbilityExecutionStage.CooldownCheck);
+            return AbilityExecutionResult.Failed(cooldownResult.FailureReason ?? "Cooldown check failed", AbilityExecutionStage.CooldownCheck);
         }
 
         // Step 4: Validate targeting
