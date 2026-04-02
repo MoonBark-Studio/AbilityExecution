@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Friflo.Engine.ECS" Version="3.4.2" />
+    <PackageReference Include="Friflo.Engine.ECS" Version="3.6.0" />
   </ItemGroup>
 
   <ItemGroup>
